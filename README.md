@@ -68,7 +68,7 @@ Dans le fichier créé, copiez ceci:
 ```
 Et dans le fichier **main.js** qui est dans le dossier **src/**, collez cette ligne afin d'importer le fichier créé plus haut (évidemment pensez à ne pas vous tromper pour le type de fichier):
 ```javascript
-import '@/assets/css/tailwind.css"
+import '@/assets/css/tailwind.css'
 ```
 Et voilà, Tailwind est installé. Mais ce n'est pas tout!
 
