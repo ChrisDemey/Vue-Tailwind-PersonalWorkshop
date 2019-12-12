@@ -1,11 +1,11 @@
 # Vue & Tailwind
 
 ![Tailwind and Vue logo](assets/img/tailwindvue.jpeg)
-Ce workshop personel a pour but , dans un premier temps, d'intégrer Tailwind dans un projet Vue afin de tirer le meilleur des deux. Par la suite je prévois la possibilité de personnaliser ses thèmes Tailwind et encore plus tard intégrer Laravel pour le Back-End.
+Ce workshop a pour but , dans un premier temps, d'intégrer Tailwind dans un projet Vue afin de tirer le meilleur des deux. Par la suite je prévois la possibilité de personnaliser ses thèmes Tailwind et plus tard intégrer Laravel pour le Back-End.
 
 Mais revenons-en à nos moutons et concentrons-nous sur Front-End ;)
 
-### Vue JS
+### VueJS
 
 Il s'agit d'un framework Javascript. Jusqu'ici je pense que tout le monde suit. Mais nous n'allons pas trop nous attarder sur les détails de ce framework.
 
@@ -31,14 +31,12 @@ Mais nous, nous allons choisir ***Manually select features***, pour choisir nous
 
 ![terminal img 1](assets/img/imgterminal1.png)
 
-Et puis à nous de choisir les features nécessaires. Ici pour ne pas se prendre la tête nous allons laisser ***Babel*** et ***Linter / Formatter*** cochés. Mais nous allons sélectionner ***CSS Pre-processors*** avec la barre d'espace. Puis la toucher Enter pour confirmer nos choix.
+Et puis à nous de choisir les features nécessaires. Ici pour ne pas se prendre la tête nous allons laisser ***Babel*** coché et décoché ***Linter / Formatter***. Nous allons aussi sélectionner ***CSS Pre-processors*** (avec la barre d'espace). Puis la touche Enter pour confirmer nos choix.
 
 ![terminal img 2](assets/img/imgterminal2.png)
 
 Ensuite, nous allons séletionner les prochianes options comme ceci:
-* Sélectionner ***Sass/SCSS (with dart-sass)***
-* Laisser coché ***ESLint with error prevention only***
-* Laisser coché aussi ***Lint on save***
+* Sélectionner ***Sass/SCSS (with node-sass)***
 * Choisir ***In dedicated config files***
 
 À la fin on vous demandera si vous voulez enregistré ce preset, pratique pour recréer des projets Vue avec les mêmes paramètres.
@@ -68,7 +66,7 @@ Dans le fichier créé, copiez ceci:
 ```
 Et dans le fichier **main.js** qui est dans le dossier **src/**, collez cette ligne afin d'importer le fichier créé plus haut (évidemment pensez à ne pas vous tromper pour le type de fichier):
 ```javascript
-import '@/assets/css/tailwind.css'
+import './assets/css/tailwind.css'
 ```
 Et voilà, Tailwind est installé. Mais ce n'est pas tout!
 
@@ -77,7 +75,7 @@ Et voilà, Tailwind est installé. Mais ce n'est pas tout!
 PostCSS est un outil de transformation CSS avec Javascript. Ne me regardez pas comme ça, j'ai juste repris la première ligne qu'on lit lorsqu'on arrive sur le <a href="https://postcss.org/">site en question</a>.
 Cet outil optimise énormément le CSS de vos projets, vous l'aurez compris je pense. Donc ici nous allons y intégrer Tailwind afin de bien oprimiser tout ça.
 
-À la racine du projet, dans le fichier ***postcss.config.js*** on va mettre 2 plugins afin d'intégrer Tailwind et un autoprefixer:
+À la racine du projet, on va créer un fichier ***postcss.config.js*** dans lequel on va mettre 2 plugins afin d'intégrer Tailwind et un autoprefixer:
 ```javascript
 module.exports = {
     plugins: [
