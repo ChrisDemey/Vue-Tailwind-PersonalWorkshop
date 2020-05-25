@@ -1,17 +1,15 @@
-# Vue & Tailwind
+# Vue.js & Tailwind
 
 ![Tailwind and Vue logo](assets/img/tailwindvue.jpeg)
-Ce workshop a pour but , dans un premier temps, d'intégrer Tailwind dans un projet Vue afin de tirer le meilleur des deux. Par la suite je prévois la possibilité de personnaliser ses thèmes Tailwind et plus tard intégrer Laravel pour le Back-End.
-
-Mais revenons-en à nos moutons et concentrons-nous sur Front-End ;)
+Ce mini-workshop a pour but de montrer les étapes à suivre afin de créer les bases d'un projet Vue.js couplé avec le framework Tailwindcss.
 
 ### VueJS
 
-Il s'agit d'un framework Javascript. Jusqu'ici je pense que tout le monde suit. Mais nous n'allons pas trop nous attarder sur les détails de ce framework.
+Il s'agit d'un framework Javascript. Jusqu'ici je pense que tout le monde suit. Mais nous n'allons pas trop nous attarder sur les détails.
 
 Si vous voulez de la bonne documentation, quoi de mieux que le site de <a href="https://fr.vuejs.org/index.html">Vue</a>!
 
-Et pour ceux qui ne se sont pas encore familiariser avec Vue, voici le <a href="https://github.com/jeandavidwuilquot/VueJS-workshop">workshop</a> d'un ancien BeCodien qui explique les bases de ce framework en utilisant le CDN (Content Delivery Network). Allez-y! Et revenez quand vous serez prêts.
+Et pour ceux qui ne se sont pas encore familiariser avec Vue, voici le <a href="https://github.com/jeandavidwuilquot/VueJS-workshop">workshop</a> d'un ancien BeCodien qui explique les bases de ce framework. Allez-y! Et revenez quand vous serez prêts.
 
 Pour les autres, on passe à la suite.
 
@@ -26,26 +24,21 @@ Maintenant, toujours avec le terminal, allez où vous voulez pour créer votre p
 ```
 $ vue create my-app
 ```
-Vous allez avoir un choix qui va s'afficher dans le terminal. Si vous ne voulez pas utiliser Tailwind alors appuyez sur la touche Enter et votre projet sera créé.
-Mais nous, nous allons choisir ***Manually select features***, pour choisir nous-même ce qu'on voudra avec notre projet Vue.
+Vous allez avoir un choix qui va s'afficher dans le terminal. 
+- **'default'** : inclut de base babel et eslint.
+- **'manually select features'** : permet de choisir ce dont vous avez besoin pour votre projet.
 
-![terminal img 1](assets/img/imgterminal1.png)
+Choisissons ***Manually select features***.
 
-Et puis à nous de choisir les features nécessaires. Ici pour ne pas se prendre la tête nous allons laisser ***Babel*** coché et décoché ***Linter / Formatter***. Nous allons aussi sélectionner ***CSS Pre-processors*** (avec la barre d'espace). Puis la touche Enter pour confirmer nos choix.
+Ensuite, nous allons laisser ***Babel*** et ***Linter / Formatter*** cochés. Ce sera uniquement pour la base, mais libre à vous de choisir ce dont vous avez besoin en plus. (cochez et décochez avec la barre d'espace).
 
-![terminal img 2](assets/img/imgterminal2.png)
-
-Ensuite, nous allons séletionner les prochianes options comme ceci:
-* Sélectionner ***Sass/SCSS (with node-sass)***
-* Choisir ***In dedicated config files***
-
-À la fin on vous demandera si vous voulez enregistré ce preset, pratique pour recréer des projets Vue avec les mêmes paramètres.
-
-Une fois tout ça fait, notre projet Vue est prêt!
+Concernant linter, je choisis ***ESLint + Standard config***, mais à chacuns ses choix.
+Ensuite ***Lint on save*** est un must.
+Et enfin, le plus important! Choisissez ***In dedicated config files***. Ceci est absolument nécessaire pour la suite.
 
 ### TailwindCSS
 
-Qu'est-ce donc que cette chose là? Il s'agit d'un framework CSS qui permet énormément de créer ses designs, le tout sans toucher une ligne de CSS (voir très peu).
+Qu'est-ce donc que cette chose là? Il s'agit d'un framework CSS sans toucher une ligne de CSS.
 Les aficionados de Bootstrap s'y retrouveront assez vite, mais pour les plus curieux, voici le <a href="https://tailwindcss.com/">site</a>.
 
 Ici notre but ultime, si vous ne l'avez pas compris, c'est de faire un projet Vue **SANS TOUCHER UNE LIGNE DE CSS**. Ce qui pourrait paraître fou pour certains, mais vous allez voir, la magie va opérer ;)
@@ -54,36 +47,15 @@ Ici notre but ultime, si vous ne l'avez pas compris, c'est de faire un projet Vu
 
 Comme pour Vue, ouvrez à nouveau votre terminal, ou bien revenez-y. Mais vous devrez revenir à la racine du projet créé précédemment. Puis mettez cette ligne de commande:
 ```
-$ npm install tailwindcss
+$ vue add tailwind
 ```
-Ensuite, toujours à la racine du projet, allez dans ***src/assets/*** et créez un dossier ***CSS*** ou bien ***SCSS*** (au choix selon votre affinité). Et dedans, créez un fichier ***tailwind.css*** (ou ***.scss***).
+Lors de l'installation un fichier **tailwind.config.js** sera créé, mais avec un choix:
+- **'none'** : ne créé pas le fichier.
+- **'minimal'** : créé le fichier en version minimal. Permet de personnaliser uniquement ce dont vous avez besoin du framework.
+- **'full'** : créé la version full de ce fichier. Et ceci permet de personnaliser l'entièreté de Tailwind dans votre projet.
 
-Dans le fichier créé, copiez ceci:
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-Et dans le fichier **main.js** qui est dans le dossier **src/**, collez cette ligne afin d'importer le fichier créé plus haut (évidemment pensez à ne pas vous tromper pour le type de fichier):
-```javascript
-import './assets/css/tailwind.css'
-```
-Et voilà, Tailwind est installé. Mais ce n'est pas tout!
+Mais le mieux, pour commencer en tout cas, c'est choisir l'option ***minimal***. Pas besoin d'importer ce que l'on n'aura pas besoin d'utiliser.
 
-### PostCSS
+Et...... **FINI!!!**
 
-PostCSS est un outil de transformation CSS avec Javascript. Ne me regardez pas comme ça, j'ai juste repris la première ligne qu'on lit lorsqu'on arrive sur le <a href="https://postcss.org/">site en question</a>.
-Cet outil optimise énormément le CSS de vos projets, vous l'aurez compris je pense. Donc ici nous allons y intégrer Tailwind afin de bien oprimiser tout ça.
-
-À la racine du projet, on va créer un fichier ***postcss.config.js*** dans lequel on va mettre 2 plugins afin d'intégrer Tailwind et un autoprefixer:
-```javascript
-module.exports = {
-    plugins: [
-        require('tailwind'),
-        require('autoprefixer'),
-    ]
-}
-```
-Fini!!!
-
-Maintenant à vous de jouer et de (re)découvrir **Vue.JS**.
+Maintenant à vous de jouer et de (re)découvrir **Vue.js** et **Tailwindcss**.
