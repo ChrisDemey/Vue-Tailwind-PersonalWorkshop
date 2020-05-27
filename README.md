@@ -1,5 +1,7 @@
 # Vue.js & Tailwind
 
+#### <a href="En.md">English version</a>
+
 ![Tailwind and Vue logo](assets/img/tailwindvue.jpeg)
 Ce mini-workshop a pour but de montrer les étapes à suivre afin de créer les bases d'un projet Vue.js couplé avec le framework Tailwindcss.
 
